@@ -11,7 +11,7 @@ public class Subject {
     @Id
     @Column(name="idMateria")
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Identity
-    private long id;
+    private Long id;
     @Column(nullable = false)
     private String topic;
     @Column(nullable = false)
@@ -25,7 +25,7 @@ public class Subject {
     private List<Student> studentsList;             // CascadeType.All permite que al hacer una modificación en la clave primaria se modifique en las claves foráneas
 
 
-    public Subject(long id, String topic, LocalDate schedule, Teacher teacher, List<Student> studentsList) {
+    public Subject(Long id, String topic, LocalDate schedule, Teacher teacher, List<Student> studentsList) {
         this.id = id;
         this.topic = topic;
         this.schedule = schedule;
@@ -34,11 +34,11 @@ public class Subject {
     }
     public Subject() {}
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -9,7 +9,7 @@ public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="idTeacher")
-    private long id;
+    private Long id;
     @Column(name = "nombres",nullable = false) // se le cambia el nombre al campo en la BD, es opcional
     private String name;
     @Column(nullable = false)
@@ -21,7 +21,7 @@ public class Teacher {
     @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
     private List<Subject> subjects;
     public Teacher(){}
-    public Teacher(long id, String name, String lastname, String dni, int age, List<Subject> subjects) {
+    public Teacher(Long id, String name, String lastname, String dni, int age, List<Subject> subjects) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
@@ -30,11 +30,11 @@ public class Teacher {
         this.subjects = subjects;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

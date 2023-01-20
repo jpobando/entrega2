@@ -6,7 +6,7 @@ import com.ias.crudjp.entity.Teacher;
 import java.util.List;
 
 public class TeacherDTO {
-    private long id;
+    private Long id;
     private String name;
     private String lastname;
     private String dni;
@@ -15,7 +15,7 @@ public class TeacherDTO {
 
     public TeacherDTO(){}
 
-    public TeacherDTO(long id, String name, String lastname, String dni, int age, List<Subject> subjects) {
+    public TeacherDTO(Long id, String name, String lastname, String dni, int age, List<Subject> subjects) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
@@ -33,11 +33,11 @@ public class TeacherDTO {
         this.subjects = teacher.getSubjects();
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

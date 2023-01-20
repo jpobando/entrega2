@@ -6,7 +6,7 @@ import com.ias.crudjp.entity.Subject;
 import java.time.LocalDate;
 
 public class StudentDTO {
-    private long id;
+    private Long id;
     private String name;
     private String lastname;
     private String dni;
@@ -16,7 +16,7 @@ public class StudentDTO {
 
     public StudentDTO(){}
 
-    public StudentDTO(long id, String name, String lastname, String dni, int age, LocalDate birthDate, Subject subject) {
+    public StudentDTO(Long id, String name, String lastname, String dni, int age, LocalDate birthDate, Subject subject) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
@@ -36,11 +36,11 @@ public class StudentDTO {
         this.subject = student.getSubject();
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

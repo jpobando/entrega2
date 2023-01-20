@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class SubjectDTO {
-    private long id;
+    private Long id;
     private String topic;
     private LocalDate schedule;
     private Teacher teacher;
@@ -16,7 +16,7 @@ public class SubjectDTO {
 
     public SubjectDTO(){}
 
-    public SubjectDTO(long id, String topic, LocalDate schedule, Teacher teacher, List<Student> studentsList) {
+    public SubjectDTO(Long id, String topic, LocalDate schedule, Teacher teacher, List<Student> studentsList) {
         this.id = id;
         this.topic = topic;
         this.schedule = schedule;
@@ -32,11 +32,11 @@ public class SubjectDTO {
         this.studentsList = subject.getStudentsList();
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

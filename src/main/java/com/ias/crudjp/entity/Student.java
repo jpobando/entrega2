@@ -9,7 +9,7 @@ public class Student {
     @Id  // esta anotación es para indicar que será el ID de la tabla
     @Column(name="idEstudiante")
     @GeneratedValue(strategy = GenerationType.IDENTITY) //1,2,3,4,5 a nivel de código se le indica que es autoincremental
-    private long id;
+    private Long id;
     @Column(name = "nombres",nullable = false) // se le cambia el nombre al campo en la BD, es opcional
     private String name;
     @Column(nullable = false)
@@ -26,7 +26,7 @@ public class Student {
 
     public Student(){}
 
-    public Student(long id, String name, String lastname, String dni, int age, LocalDate birthDate, Subject subject) {
+    public Student(Long id, String name, String lastname, String dni, int age, LocalDate birthDate, Subject subject) {
         this.id = id;
         this.name = name;
         this.lastname = lastname;
@@ -36,11 +36,11 @@ public class Student {
         this.subject = subject;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
