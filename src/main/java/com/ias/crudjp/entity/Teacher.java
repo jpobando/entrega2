@@ -1,5 +1,7 @@
 package com.ias.crudjp.entity;
 
+import com.ias.crudjp.dto.TeacherDTO;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -21,6 +23,7 @@ public class Teacher {
     @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
     private List<Subject> subjects;
     public Teacher(){}
+
     public Teacher(Long id, String name, String lastname, String dni, int age, List<Subject> subjects) {
         this.id = id;
         this.name = name;
@@ -76,5 +79,14 @@ public class Teacher {
 
     public void setSubjects(List<Subject> subjects) {
         this.subjects = subjects;
+    }
+
+    public Teacher(TeacherDTO teacherDTO){
+        this.id = teacherDTO.getId(); // Lo genera la base de datos, ANALIZARLO!!
+        this.name = teacherDTO.getName();
+        this.lastname = teacherDTO.getLastname();
+        this.dni = teacherDTO.getDni();
+        this.age = teacherDTO.getAge();
+        this.subjects = teacherDTO.getSubjects();
     }
 }

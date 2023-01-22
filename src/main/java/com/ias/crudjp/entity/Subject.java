@@ -1,6 +1,9 @@
 package com.ias.crudjp.entity;
 
 
+import com.ias.crudjp.dto.SubjectDTO;
+
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
@@ -72,5 +75,13 @@ public class Subject {
 
     public void setStudentsList(List<Student> studentsList) {
         this.studentsList = studentsList;
+    }
+
+    public Subject(SubjectDTO subjectDTO){
+        this.id = subjectDTO.getId(); // Lo genera la base de datos, ANALIZARLO!!
+        this.topic = subjectDTO.getTopic();
+        this.schedule = subjectDTO.getSchedule();
+        this.teacher = subjectDTO.getTeacher();
+        this.studentsList = subjectDTO.getStudentsList();
     }
 }

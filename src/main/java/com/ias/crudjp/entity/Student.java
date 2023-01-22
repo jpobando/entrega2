@@ -1,5 +1,8 @@
 package com.ias.crudjp.entity;
 
+import com.ias.crudjp.dto.StudentDTO;
+import com.ias.crudjp.dto.TeacherDTO;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -44,9 +47,7 @@ public class Student {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getName() { return name; }
 
     public void setName(String name) {
         this.name = name;
@@ -84,11 +85,18 @@ public class Student {
         this.birthDate = birthDate;
     }
 
-    public Subject getSubject() {
-        return subject;
-    }
+    public Subject getSubject() { return subject; }
 
     public void setSubject(Subject subject) {
         this.subject = subject;
+    }
+
+    public Student(StudentDTO studentDTO){
+        this.id = studentDTO.getId(); // Lo genera la base de datos, ANALIZARLO!!
+        this.name = studentDTO.getName();
+        this.lastname = studentDTO.getLastname();
+        this.dni = studentDTO.getDni();
+        this.age = studentDTO.getAge();
+        this.subject = studentDTO.getSubject();
     }
 }
