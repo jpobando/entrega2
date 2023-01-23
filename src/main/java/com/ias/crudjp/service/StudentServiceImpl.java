@@ -5,6 +5,8 @@ import com.ias.crudjp.entity.Student;
 import com.ias.crudjp.repository.IStudentRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -18,19 +20,21 @@ public class StudentServiceImpl implements IStudentService{
 
     @Override
     public void saveStudent(StudentDTO studentDTO) {
-        if(!_studentRepository.existsById(studentDTO.getId())){
-            Student studentToAdd = new Student();
 
-            studentToAdd.setAge(studentDTO.getAge());
-            studentToAdd.setDni(studentDTO.getDni());
-            studentToAdd.setName(studentDTO.getName());
-            studentToAdd.setLastname(studentDTO.getLastname());
-            studentToAdd.setBirthDate(studentDTO.getBirthDate());
+        Student studentToAdd = new Student();
+        studentToAdd.setDni(studentDTO.getDni());
+        studentToAdd.setName(studentDTO.getName());
+        studentToAdd.setLastname(studentDTO.getLastname());
+        studentToAdd.setBirthDate(studentDTO.getBirthDate());
 
-            Student studentSaved = _studentRepository.save(studentToAdd);
 
-            studentDTO.setId(studentSaved.getId());
-        }
+        Period edad = Period.between(studentDTO.getBirthDate(), LocalDate.now());
+        studentToAdd.setAge(edad.getYears());
+
+        Student studentSaved = _studentRepository.save(studentToAdd);
+
+        studentDTO.setId(studentSaved.getId());
+
     }
 
     @Override

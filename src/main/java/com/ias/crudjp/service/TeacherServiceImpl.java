@@ -19,7 +19,6 @@ public class TeacherServiceImpl implements ITeacherService{
     @Override
     public void saveTeacher(TeacherDTO teacher) {
 
-        if(!_teacherRepository.existsById(teacher.getId())){
             Teacher teacherToAdd = new Teacher();
 
             //Mapeo entre Teacher (Entidad necesaria para guardar el registro) y el DTO (parametros de la función)
@@ -33,7 +32,7 @@ public class TeacherServiceImpl implements ITeacherService{
 
             //Le agrego el ID a la entidad
             teacher.setId(teacherSaved.getId());
-        }
+
         //Instancia de la entidad teacher necesaria para persistir en la base de datos
         /*Teacher teacherToAdd = new Teacher();
 
