@@ -67,7 +67,7 @@ public class TeacherServiceImpl implements ITeacherService{
         Optional<Teacher> value = _teacherRepository.findById(teacherId);
         if(value.isPresent()){
             _teacherRepository.deleteById(teacherId);
-            return "Updated";
+            return "Deleted";
         } else {
             return "Not exists";
         }
